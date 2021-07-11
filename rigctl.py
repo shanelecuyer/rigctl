@@ -2,14 +2,14 @@ import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect
 import time
 
-templatePath = '/root/rigctl/template/index.html'
+#rig name, description, GPIO pin
+rigs = [['Rig1', 'AMD', 23], ['Rig2', 'NVIDIA', 24]]
+
 app = Flask(__name__, template_folder='template')
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-# initialize variables
-#rig name, description, GPIO pin
-rigs = [['Rig1', 'AMD', 23], ['Rig2', 'NVIDIA', 24]]
 ambientTemp = None
 
 # Define relay pins as output
@@ -63,7 +63,9 @@ def index():
 @app.route("/<deviceName>/<action>")
 def action(deviceName, action):
 	for rig in rigs:
-		if rig[0] == deviceName:
+		if not rig[0] == deviceName:
+			continue
+		else:
 			gpio = rig[2]
 
 			if action == "hardReboot":
