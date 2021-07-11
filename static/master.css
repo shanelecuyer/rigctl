@@ -1,0 +1,29 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: black;
+	color: green;
+}
+.button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* .button {
+  font: bold 15px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+} */

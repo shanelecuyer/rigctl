@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <head>
+        <title>GPIO Control</title>
+        <link rel="stylesheet" href='../static/master.css'/>
+    </head>
+    <body>
+		<h1>RPi GPIO Rig Controller</h1>
+		<h3> Ambient Temp:  {{ ambientTemp }}°C</h3>
+		{% for rig in rigs %}
+		<h3> {{ rig[0] }} ({{ rig[1] }}): {{ rig[3] }}
+		<br>
+			{% if rig[3] == 'off' %}
+			<a href="/{{ rig[0] }}/powerOn"class="button">Turn On</a>
+			{% elif rig[3] == 'on' %}
+			<a href="/{{ rig[0] }}/shutdown"class="button">Shutdown</a>
+			<a href="/{{ rig[0] }}/hardReboot"class="button">Hard Reboot</a>
+			<a href="/{{ rig[0] }}/hardOff"class="button">Hard off</a>
+			{% endif %}
+		</h3>
+		{% endfor %}
+    </body>
+</html>
