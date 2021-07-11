@@ -4,6 +4,8 @@ import time
 
 #rig name, description, GPIO pin
 rigs = [['Rig1', 'AMD', 23], ['Rig2', 'NVIDIA', 24]]
+ip = 192.168.201.187
+port = 44332
 
 app = Flask(__name__, template_folder='template')
 
@@ -91,7 +93,7 @@ def action(deviceName, action):
 if __name__ == "__main__":
 	try:
 		initRigs()
-		app.run(host='192.168.201.187', port=44332, debug=True)
+		app.run(host=ip, port=port, debug=True)
 
 	except KeyboardInterrupt:
 		print('yep')
