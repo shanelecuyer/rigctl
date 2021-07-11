@@ -30,6 +30,7 @@ def initRigs ():
 
 def hardReboot(gpio):
     hardOff(gpio)
+    time.sleep(1)
     powerOn(gpio)
 
 def powerOn(gpio):
@@ -46,7 +47,7 @@ def toggle(gpio,delay):
     time.sleep(delay)
     GPIO.output(gpio, GPIO.HIGH)
 	
-def refresh():
+def update():
 	ambientTemp = 0
 	for rig in rigs:
 		pass
@@ -54,12 +55,10 @@ def refresh():
 @app.route("/")
 def index():
 	# Read GPIO Status
-	refresh()
-	
 	templateData = {
 		'rigs' : rigs,
 		'ambientTemp' : ambientTemp,
-      	}
+    }
 	return render_template('index.html', **templateData)
 
 @app.route("/<deviceName>/<action>")
@@ -82,12 +81,10 @@ def action(deviceName, action):
 			elif action == "hardOff":
 				hardOff(gpio)
 				rig[3] = 'off'
-	
 	templateData = {
 		'rigs' : rigs,
 		'ambientTemp' : ambientTemp,
-      	}
-	
+    }
 	return redirect('/')
 
 if __name__ == "__main__":
