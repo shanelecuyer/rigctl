@@ -4,8 +4,8 @@ import time
 
 #rig name, description, GPIO pin
 rigs = [['Rig1', 'AMD', 23], ['Rig2', 'NVIDIA', 24]]
-ip = 192.168.201.187
-port = 44332
+ip = '192.168.201.187'
+port = '44332'
 
 app = Flask(__name__, template_folder='template')
 
