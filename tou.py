@@ -1,4 +1,4 @@
-# Obtain time of use information for hydro ottawa
+# Obtain time of use information for hydro one electricity provider by scraping their webpage
 
 from bs4 import BeautifulSoup
 import requests
