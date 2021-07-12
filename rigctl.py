@@ -93,5 +93,4 @@ if __name__ == "__main__":
 		app.run(host=ip, port=port, debug=True)
 
 	except KeyboardInterrupt:
-		print('yep')
 		GPIO.cleanup()
