@@ -1,3 +1,5 @@
+# Obtain time of use information for hydro ottawa
+
 from bs4 import BeautifulSoup
 import requests
 import re
